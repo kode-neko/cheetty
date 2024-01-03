@@ -1,0 +1,19 @@
+@import "./fonts.less";
+@import "./units.less";
+
+:root {
+  font-family: @montserrat;
+
+  // desktop
+  @media (min-width: 1920px) {
+    font-size: @base-unit;
+  }
+  // tablet
+  @media (min-width: 1200px) {
+    font-size: @base-unit*0.75;
+  }
+  // mobile
+  @media (min-width: 600px) {
+    font-size: @base-unit;
+  }
+}
