@@ -4,17 +4,22 @@ import MyButton from '../components/main-bar/MainBar.vue';
 export default {
   title: 'Example/Button',
   component: MyButton,
-  tags: ['autodocs'],
+  tags: [ 'autodocs' ],
   argTypes: {
     backgroundColor: {
       control: 'color',
     },
-    onClick: {},
+    onClick: {
+    },
     size: {
       control: {
         type: 'select',
       },
-      options: ['small', 'medium', 'large'],
+      options: [
+        'small',
+        'medium',
+        'large'
+      ],
     },
   },
 };
