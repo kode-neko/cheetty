@@ -12,6 +12,9 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/i18n": "^8.0.0",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
     "@storybook/addon-links": "^7.6.7",
@@ -19,6 +22,7 @@
     "@storybook/test": "^7.6.7",
     "@storybook/vue3": "^7.6.7",
     "@storybook/vue3-vite": "^7.6.7",
+    "@stylistic/eslint-plugin": "^1.5.3",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "eslint": "^8.56.0",
     "eslint-config-standard-with-typescript": "^43.0.0",
