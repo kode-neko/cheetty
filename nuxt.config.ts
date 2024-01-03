@@ -4,7 +4,9 @@ export default defineNuxtConfig({
     enabled: true 
   },
   modules: [
-    '@nuxtjs/eslint-module', '@nuxtjs/i18n' 
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/i18n',
+    '@nuxtjs/i18n' 
   ],
   i18n: {
     vueI18n: './i18n'
