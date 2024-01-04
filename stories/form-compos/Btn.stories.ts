@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import Btn from '../components/form-compos/Btn.vue';
+import Btn from '../../components/form-compos/Btn.vue';
 
 const meta: Meta<typeof Btn> = {
   component: Btn,
