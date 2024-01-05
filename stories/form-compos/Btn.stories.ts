@@ -8,8 +8,6 @@ const meta: Meta<typeof Btn> = {
   tags: [ 'autodocs' ],
   args: {
     label: 'New cheat',
-    icon: 'fa-solid fa-circle-plus',
-    solid: true
   },
 };
 
@@ -24,7 +22,6 @@ export const Solid: Story = {
     solid: true
   },
 };
-
 export const Line: Story = {
   args: {
     label: 'New cheat',
