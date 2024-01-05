@@ -10,7 +10,7 @@ defineEmits<{
 
 <template>
   <button class="btn" @click="$emit('click')">
-    <font-aw v-if="icon" class="icon" icon="fas fas-circle-plus" />
+    <font-aw v-if="icon" class="icon" :icon="icon" />
   </button>
 </template>
 

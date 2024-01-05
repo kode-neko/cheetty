@@ -12,7 +12,7 @@ defineEmits<{
 
 <template>
   <button :class="solid ? 'solid' : 'line'" @click="$emit('click')">
-    <font-aw v-if="icon" class="icon" icon="fas fas-circle-plus" />
+    <font-aw v-if="icon" class="icon" :icon="icon" />
     <div class="label">
       {{ label }}
     </div>

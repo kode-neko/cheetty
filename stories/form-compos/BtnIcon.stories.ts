@@ -16,8 +16,6 @@ type Story = StoryObj<typeof BtnIcon>;
 
 export const Default: Story = {
   args: {
-    icon: [
-      'fas', 'circle-plus'
-    ]
+    icon: 'fa-solid fa-pencil'
   },
 };

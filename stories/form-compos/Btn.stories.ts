@@ -7,8 +7,9 @@ const meta: Meta<typeof Btn> = {
   },
   tags: [ 'autodocs' ],
   args: {
-    //👇 Now all Button stories will be primary.
     label: 'New cheat',
+    icon: 'fa-solid fa-circle-plus',
+    solid: true
   },
 };
 
@@ -19,9 +20,7 @@ type Story = StoryObj<typeof Btn>;
 export const Solid: Story = {
   args: {
     label: 'New cheat',
-    icon: [
-      'fas', 'circle-plus'
-    ],
+    icon: 'fa-solid fa-circle-plus',
     solid: true
   },
 };
@@ -29,9 +28,7 @@ export const Solid: Story = {
 export const Line: Story = {
   args: {
     label: 'New cheat',
-    icon: [
-      'fas', 'circle-plus'
-    ],
+    icon: 'fa-solid fa-circle-plus',
     solid: false
   },
 };

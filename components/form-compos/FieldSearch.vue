@@ -18,7 +18,7 @@ const handleInput = (event: Event) => {
 <template>
   <div class="cont">
     <input class="field" type="text" :value="modelValue" :placeholder="placeholder" @input="handleInput" />
-    <font-aw class="icon" :icon="['fas', 'magnifying-glass']" />
+    <font-aw class="icon" icon="fa-solid fa-magnifying-glass" />
   </div>
 </template>
 
