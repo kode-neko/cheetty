@@ -7,7 +7,8 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string): void,
+  (e: 'search'): void
 }>();
 
 const handleInput = (event: Event) => {
@@ -17,8 +18,15 @@ const handleInput = (event: Event) => {
 
 <template>
   <div class="cont">
-    <input class="field" type="text" :value="modelValue" :placeholder="placeholder" @input="handleInput" />
-    <font-aw class="icon" icon="fa-solid fa-magnifying-glass" />
+    <input
+      class="field"
+      type="text"
+      :value="modelValue"
+      :placeholder="placeholder"
+      @input="handleInput"
+      @keyup.enter="$emit('search')"
+    />
+    <font-aw class="icon" icon="fa-solid fa-magnifying-glass" @click="$emit('search')" />
   </div>
 </template>
 
@@ -52,5 +60,8 @@ const handleInput = (event: Event) => {
   height: 1.75rem;
   width: 1.75rem;
   color: @white;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
