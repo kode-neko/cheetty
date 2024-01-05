@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from '../icons/fontawesome';
+import getFontawesome from "~/icons/fontawesome";
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.component('font-aw', FontAwesomeIcon);
+  nuxtApp.vueApp.component('font-aw', getFontawesome());
 });
-
-export { FontAwesomeIcon };

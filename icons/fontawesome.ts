@@ -8,8 +8,10 @@ import {
 // eslint-disable-next-line import/named
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-config.autoAddCss = false;
+function getFontawesome() {
+  config.autoAddCss = false;
+  library.add(faCirclePlus, faPencil, faXmark, faMagnifyingGlass, faBars, faDoorOpen, faShare, faEnvelope, faTrash, faXmarkCircle, faTwitter, faGitAlt, faCodepen, faBolt, faFigma);
+  return FontAwesomeIcon;
+}
 
-library.add(faCirclePlus, faPencil, faXmark, faMagnifyingGlass, faBars, faDoorOpen, faShare, faEnvelope, faTrash, faXmarkCircle, faTwitter, faGitAlt, faCodepen, faBolt, faFigma);
-
-export { FontAwesomeIcon };
+export default getFontawesome;
