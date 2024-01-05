@@ -7,6 +7,7 @@ const meta: Meta<typeof BtnIcon> = {
   },
   tags: [ 'autodocs' ],
   args: {
+    color: 'pink'
   },
 };
 

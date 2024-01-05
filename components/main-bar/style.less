@@ -1,0 +1,31 @@
+.cont {
+  height: 6.25rem;
+  width: 100%;
+  background-color: @purple-02;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: @yellowtail;
+  font-size: 5rem;
+  color: @pink-01;
+  text-shadow: 0 0 1.13rem @pink-back, 0 0 0.38rem @pink-back;
+  transform: rotate(-5deg);
+}
+
+.iconBtn {
+  color: @white;
+  &.sm {
+    height: 1.75rem;
+  }
+  &.md {
+    height: 2rem;
+  }
+  &:hover {
+    cursor: pointer;
+    color: @pink-01;
+  }
+}

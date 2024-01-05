@@ -42,6 +42,9 @@ defineEmits<{
   .icon, .label{
     color: @white;
   }
+  &:hover {
+    background-color: @lilac-01;
+  }
 }
 
 .line {
@@ -49,6 +52,9 @@ defineEmits<{
   border: 0.13rem solid @pink-back;
   .icon, .label{
     color: @pink-back;
+  }
+  &:hover {
+    border: 0.13rem solid @lilac-01;
   }
 }
 
