@@ -5,7 +5,10 @@ import FieldSearch from '../form-compos/FieldSearch.vue';
 import Btn from '../form-compos/Btn.vue';
 
 defineEmits<{
-  (e: 'search', val: string): void
+  (e: 'search', val: string): void,
+  (e: 'social', type: string): void,
+  (e: 'contact'): void
+  (e: 'logout'): void
 }>();
 
 const searchStr = ref<string>('');
@@ -28,9 +31,9 @@ const searchStr = ref<string>('');
         icon="fa-solid fa-circle-plus"
         :solid="true"
       />
-      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-envelope" />
-      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-share-nodes" />
-      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-door-open" />
+      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-envelope" @click="$emit('contact')" />
+      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-share-nodes" @click="$emit('social', 'test')" />
+      <font-aw :class="['iconBtn', 'sm']" icon="fa-solid fa-door-open" @click="$emit('logout')" />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import { library, config } from '@fortawesome/fontawesome-svg-core';
 import {
-  faCodepen, faFigma, faGitAlt, faTwitter 
+  faCodepen, faFigma, faGitAlt, faTwitter, faGithubAlt 
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faBars, faBolt, faCirclePlus, faDoorOpen, faEnvelope, faMagnifyingGlass, faPencil, faShareNodes, faTrash, faXmark, faXmarkCircle 
@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 function getFontawesome() {
   config.autoAddCss = false;
-  library.add(faCirclePlus, faPencil, faXmark, faMagnifyingGlass, faBars, faDoorOpen, faShareNodes, faEnvelope, faTrash, faXmarkCircle, faTwitter, faGitAlt, faCodepen, faBolt, faFigma);
+  library.add(faCirclePlus, faPencil, faXmark, faMagnifyingGlass, faBars, faDoorOpen, faShareNodes, faEnvelope, faTrash, faXmarkCircle, faTwitter, faGitAlt, faCodepen, faBolt, faFigma, faGithubAlt);
   return FontAwesomeIcon;
 }
 

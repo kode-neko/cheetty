@@ -1,7 +1,12 @@
+<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import { ref } from 'vue';
 import FieldSearch from '../form-compos/FieldSearch.vue';
 import BtnIcon from '../form-compos/BtnIcon.vue';
+
+defineEmits<{
+  (e: 'search', val: string): void,
+}>();
 
 const searchStr = ref<string>('');
 </script>
@@ -13,7 +18,7 @@ const searchStr = ref<string>('');
         Cheetty
       </h1>
       <div class="opts">
-        <FieldSearch placeholder="buscar..." :model-value="searchStr" />
+        <FieldSearch placeholder="buscar..." :model-value="searchStr" @search="$emit('search', searchStr)" />
         <BtnIcon icon="fa-solid fa-pencil" color="pink" />
       </div>
     </div>
