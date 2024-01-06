@@ -17,7 +17,7 @@ const handleInput = (event: Event) => {
 </script>
 
 <template>
-  <div class="cont">
+  <div class="search">
     <input
       class="field"
       type="text"
@@ -35,7 +35,7 @@ const handleInput = (event: Event) => {
 @import '../../assets/styles/colors.less';
 @import '../../assets/styles/units.less';
 
-.cont {
+.search {
   height: 3.25rem;
   border-radius: @radius-sm;
   background-color: @purple-01;
@@ -59,7 +59,7 @@ const handleInput = (event: Event) => {
   flex-basis: fit-content;
   height: 1.75rem;
   width: 1.75rem;
-  color: @white;
+  color: @white; 
   &:hover {
     cursor: pointer;
   }
