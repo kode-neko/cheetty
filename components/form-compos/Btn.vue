@@ -39,6 +39,7 @@ defineEmits<{
 .solid {
   .btn();
   background-color: @pink-back;
+  transition: background-color 0.3s;
   .icon, .label{
     color: @white;
   }
@@ -50,11 +51,13 @@ defineEmits<{
 .line {
   .btn();
   border: 0.13rem solid @pink-back;
+  transition: border 0.3s, color 0.3s;
   .icon, .label{
     color: @pink-back;
   }
   &:hover {
     border: 0.13rem solid @lilac-01;
+    color: @lilac-01;
   }
 }
 
