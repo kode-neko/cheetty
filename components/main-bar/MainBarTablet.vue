@@ -24,8 +24,6 @@ const searchStr = ref<string>('');
 </template>
 
 <style lang="less" scoped>
-@import '../../assets/styles/fonts.less';
-@import '../../assets/styles/colors.less';
 @import './style.less';
 
 .left {

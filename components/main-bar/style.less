@@ -1,3 +1,7 @@
+@import "../../assets/styles/fonts.less";
+@import "../../assets/styles/colors.less";
+@import "../../assets/styles/animations.less";
+
 .cont {
   height: 6.25rem;
   width: 100%;
@@ -14,10 +18,14 @@
   color: @pink-01;
   text-shadow: 0 0 1.13rem @pink-back, 0 0 0.38rem @pink-back;
   transform: rotate(-5deg);
+  animation-name: neonEffect;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
 .iconBtn {
   color: @white;
+  transition: color 0.3s;
   &.sm {
     height: 1.75rem;
   }

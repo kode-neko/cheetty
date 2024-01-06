@@ -1,0 +1,39 @@
+@import "./colors.less";
+
+.pinkNeon {
+  color: @pink-01;
+  text-shadow: 0.5rem 0.5rem 1.5rem @pink-back,
+    -0.5rem -0.5rem 1.5rem @pink-back;
+}
+
+.pnikNeonOff {
+  color: @pink-off;
+  text-shadow: 0.5rem 0.5rem 1.5rem @trans, -0.5rem -0.5rem 1.5rem @trans;
+}
+
+@keyframes neonEffect {
+  0% {
+    .pinkNeon();
+  }
+  84% {
+    .pinkNeon();
+  }
+  85% {
+    .pnikNeonOff();
+  }
+  94% {
+    .pnikNeonOff();
+  }
+  95% {
+    .pinkNeon();
+  }
+  96% {
+    .pinkNeon();
+  }
+  97% {
+    .pnikNeonOff();
+  }
+  98% {
+    .pnikNeonOff();
+  }
+}
