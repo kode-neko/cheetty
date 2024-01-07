@@ -6,13 +6,13 @@ defineProps<{
   opts: Link[]
 }>();
 defineEmits<{
-  (e: 'clickOpt', val: string): void
+  (e: 'clickopt', val: string): void
 }>();
 </script>
 
 <template>
   <div :class="$style.menu">
-    <div v-for="opt in opts" :key="opt.name" :class="$style.ele" @click="$emit('clickOpt', opt.name)">
+    <div v-for="opt in opts" :key="opt.name" :class="$style.ele" @click="$emit('clickopt', opt.name)">
       <font-aw :class="$style.icon" :icon="opt.icon" />
       <div class="label">
         {{ opt.name }}
