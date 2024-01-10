@@ -30,7 +30,7 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
             @search="$emit('search', searchStr)"
           />
           <BtnIcon
-            icon="fa-solid fa-pencil"
+            icon="fa-solid fa-plus"
             color="pink"
           />
         </div>
@@ -87,13 +87,14 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
   overflow: hidden;
   .cont {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
   .side {
     position: absolute;
     top: 6.2rem;
-    z-index: 0;
+    z-index: 1;
     transition: right 0.5s;
+    min-height: 100vh;
     &.show {
       right: 0rem;
     }
