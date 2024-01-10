@@ -21,7 +21,7 @@ const handleClick = (name: string ) => {
 </script>
 
 <template>
-  <div :class="[$style.menu, isVisible ? $style.show : $style.hide]">
+  <div :class="$style.menu">
     <div
       v-for="opt in menuLinks"
       :key="opt.name"
@@ -54,12 +54,11 @@ const handleClick = (name: string ) => {
 @import '../assets/styles/colors.less';
 
 .menu{
-  position: absolute;
-  top: 0;
+  display: block;
   background-color: @purple-02;
   box-shadow: @side-menu-shadow;
-  transition: left 0.5s;
-  height: 100%;
+  width: fit-content;
+  min-height: 100vh;
   .common {
     display: flex;
     align-items: center;
@@ -92,12 +91,6 @@ const handleClick = (name: string ) => {
       cursor: pointer;
       color: @pink-01;
     }
-  }
-  &.hide {
-    right: 20rem;
-  }
-  &.show {
-    right: 0;
   }
 }
 </style>
