@@ -1,8 +1,7 @@
 <!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import useGlobals from '../../stores/globals';
-
-type OptsType = 'create' | 'contact' | 'logout';
+import type { OptsType } from './types';
 
 defineProps<{
   isVisible: boolean;
