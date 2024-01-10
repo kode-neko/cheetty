@@ -59,16 +59,34 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
         @logout="handleSideMenu"
       />
     </div>
+    <Transition name="fade">
+      <div
+        v-if="isMenuSide"
+        class="overlay"
+      />
+    </Transition>
   </div>
 </template>
 
 <style lang="less" scoped>
 @import './style.less';
+@import '../../assets/styles/colors.less';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .outer {
   position: relative;
+  overflow: hidden;
   .cont {
-    position: absolute;
+    position: relative;
     z-index: 1;
   }
   .side {
@@ -77,11 +95,17 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
     z-index: 0;
     transition: right 0.5s;
     &.show {
-      right: -5rem;
+      right: 0rem;
     }
     &.hide {
-      right: -20.6rem;
+      right: -15.6rem;
     }
+  }
+  .overlay {
+    z-index: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: @purple-trans-01;
   }
 }
 
