@@ -38,7 +38,7 @@ export default defineStore('global', () => {
     icon: 'fa-brands fa-figma',
     alt: ''
   };
-  const socialList = [
+  const socialList: Link[] = [
     twitter,
     github,
     codepen,
@@ -46,10 +46,41 @@ export default defineStore('global', () => {
     figma
   ];
 
+  // Menu Opts
+  const create = {
+    name: 'create',
+    path: '',
+    icon: 'fa-solid fa-circle-plus',
+    alt: ''
+  };
+  const social = {
+    name: 'social',
+    links: socialList
+  };
+  const contact = {
+    name: 'contact',
+    path: '',
+    icon: 'fa-solid fa-envelope',
+    alt: ''
+  };
+  const logout = {
+    name: 'logout',
+    path: '',
+    icon: 'fa-solid fa-door-open',
+    alt: ''
+  };
+  const menuLinks: Link[] = [
+    create,
+    social,
+    contact,
+    logout
+  ];
+
   return {
     mainTitle,
     mainFooter,
 
-    socialList
+    socialList,
+    menuLinks
   };
 });

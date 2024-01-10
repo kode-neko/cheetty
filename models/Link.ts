@@ -1,6 +1,7 @@
 interface Link {
   name: string,
-  path: string;
+  links?: Link[],
+  path?: string;
   icon?: string,
   alt?: string,
 }
