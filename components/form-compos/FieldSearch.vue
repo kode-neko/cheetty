@@ -1,5 +1,3 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
-
 <script setup lang="ts">
 defineProps<{
   placeholder: string;
@@ -26,10 +24,13 @@ const handleInput = (event: Event) => {
       @input="handleInput"
       @keyup.enter="$emit('search')"
     />
-    <font-aw class="icon" icon="fa-solid fa-magnifying-glass" @click="$emit('search')" />
+    <font-aw
+      class="icon"
+      icon="fa-solid fa-magnifying-glass"
+      @click="$emit('search')"
+    />
   </div>
 </template>
-
 
 <style scoped lang="less">
 @import '../../assets/styles/colors.less';

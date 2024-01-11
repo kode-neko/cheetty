@@ -79,7 +79,7 @@ const handleClick = (name: string ) => {
   width: fit-content;
   min-height: 100vh;
   color: @white;
-  transition: right 0.5s ease;
+  transition: right 0.5s ease, left 0.5s ease;
   &.right.show {
     right: 0;
   }

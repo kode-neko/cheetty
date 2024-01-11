@@ -13,7 +13,7 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
     <div :class="$style.cont">
       <div :class="$style.left">
         <font-aw
-          :class="['iconBtn', 'md']"
+          :class="[$style.iconBtn, $style.md]"
           icon="fa-solid fa-bars"
           @click="handleSideMenu"
         />
@@ -25,7 +25,7 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
       </div>
       <div :class="$style.right">
         <font-aw
-          :class="['iconBtn', 'md']"
+          :class="[$style.iconBtn, $style.md]"
           icon="fa-solid fa-magnifying-glass"
         />
       </div>

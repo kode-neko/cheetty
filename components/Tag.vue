@@ -20,7 +20,12 @@ defineEmits<{
     <div class="label">
       {{ label }}
     </div>
-    <font-aw v-if="del" class="icon" icon="fas fa-xmark" @click="$emit('del')" />
+    <font-aw
+      v-if="del"
+      class="icon"
+      icon="fas fa-xmark"
+      @click="$emit('del')"
+    />
   </div>
 </template>
 
@@ -46,7 +51,7 @@ defineEmits<{
 }
 
 .purple {
-  background-color: @purple-02;
+  background-color: @purple-01;
 }
 
 .lilac {
