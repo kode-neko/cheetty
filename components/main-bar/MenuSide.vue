@@ -1,6 +1,7 @@
 <!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import useGlobals from '../../stores/globals';
+import Overlay from '../Overlay.vue';
 import type { OptsType } from './types';
 
 defineProps<{
@@ -21,40 +22,46 @@ const handleClick = (name: string ) => {
 </script>
 
 <template>
-  <div :class="$style.menu">
-    <div
-      :class="$style.cancel"
+  <div :class="$style.outer">
+    <div :class="[$style.menu, isVisible ? $style.show : $style.hide]">
+      <div
+        :class="$style.cancel"
+        @click="$emit('close')"
+      >
+        <font-aw
+          :class="$style.icon"
+          icon="fa-solid fa-xmark"
+        />
+      </div>
+      <div
+        v-for="opt in menuLinks"
+        :key="opt.name"
+        :class="[opt.name === 'social' ? $style.eleSocial : $style.ele]"
+        @click="handleClick(opt.name)"
+      >
+        <template v-if="opt.name === 'social'">
+          <font-aw
+            v-for="social in opt.links"
+            :key="social.name"
+            :class="$style.icon"
+            :icon="social.icon"
+          />
+        </template>
+        <template v-else>
+          <font-aw
+            :class="$style.icon"
+            :icon="opt.icon"
+          />
+          <div class="label">
+            {{ opt.name }}
+          </div>
+        </template>
+      </div>
+    </div>
+    <Overlay
+      :is-visible="isVisible"
       @click="$emit('close')"
-    >
-      <font-aw
-        :class="$style.icon"
-        icon="fa-solid fa-xmark"
-      />
-    </div>
-    <div
-      v-for="opt in menuLinks"
-      :key="opt.name"
-      :class="[opt.name === 'social' ? $style.eleSocial : $style.ele]"
-      @click="handleClick(opt.name)"
-    >
-      <template v-if="opt.name === 'social'">
-        <font-aw
-          v-for="social in opt.links"
-          :key="social.name"
-          :class="$style.icon"
-          :icon="social.icon"
-        />
-      </template>
-      <template v-else>
-        <font-aw
-          :class="$style.icon"
-          :icon="opt.icon"
-        />
-        <div class="label">
-          {{ opt.name }}
-        </div>
-      </template>
-    </div>
+    />
   </div>
 </template>
 
@@ -63,12 +70,22 @@ const handleClick = (name: string ) => {
 @import '../assets/styles/colors.less';
 
 .menu{
+  position: absolute;
+  z-index: 11;
+  top: 0;
   display: block;
   background-color: @purple-02;
   box-shadow: @side-menu-shadow;
   width: fit-content;
   min-height: 100vh;
   color: @white;
+  transition: right 0.5s ease;
+  &.show {
+    right: 0;
+  }
+  &.hide {
+    right: -20rem;
+  }
   .cancel {
     display: flex;
     align-items: center;

@@ -1,9 +1,7 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import { ref } from 'vue';
 import FieldSearch from '../form-compos/FieldSearch.vue';
 import BtnIcon from '../form-compos/BtnIcon.vue';
-import type { OptsType } from './types';
 import MenuSide from './MenuSide.vue';
 
 defineEmits<{
@@ -43,23 +41,14 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
         />
       </div>
     </div>
-    <div :class="['side', isMenuSide ? 'show' : 'hide']">
-      <MenuSide
-        :is-visible="true"
-        @close="handleSideMenu"
-        @contact="handleSideMenu"
-        @create="handleSideMenu"
-        @social="handleSideMenu"
-        @logout="handleSideMenu"
-      />
-    </div>
-    <Transition name="fade">
-      <div
-        v-if="isMenuSide"
-        class="overlay"
-        @click="handleSideMenu"
-      />
-    </Transition>
+    <MenuSide
+      :is-visible="isMenuSide"
+      @close="handleSideMenu"
+      @contact="handleSideMenu"
+      @create="handleSideMenu"
+      @social="handleSideMenu"
+      @logout="handleSideMenu"
+    />
   </div>
 </template>
 
@@ -67,45 +56,10 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
 @import './style.less';
 @import '../../assets/styles/colors.less';
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
 .outer {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  .cont {
-    position: relative;
-    z-index: 0;
-  }
-  .side {
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    transition: right 0.5s;
-    min-height: 100vh;
-    &.show {
-      right: 0rem;
-    }
-    &.hide {
-      right: -16rem;
-    }
-  }
-  .overlay {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    min-height: 100vh;
-    background-color: @purple-trans-01;
-  }
 }
 
 .left {

@@ -106,6 +106,7 @@
                 ],
                 "alphabetical": false
             }
-        ]
+        ],
+        "@typescript-eslint/prefer-function-type": "off"
     }
 }
