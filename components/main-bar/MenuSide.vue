@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import useGlobals from '../../stores/globals';
 import Overlay from '../Overlay.vue';
@@ -6,6 +5,7 @@ import type { OptsType } from './types';
 
 defineProps<{
   isVisible: boolean;
+  side?: 'left' | 'right';
 }>();
 
 const emit = defineEmits<{
@@ -23,7 +23,7 @@ const handleClick = (name: string ) => {
 
 <template>
   <div :class="$style.outer">
-    <div :class="[$style.menu, isVisible ? $style.show : $style.hide]">
+    <div :class="[$style.menu, isVisible ? $style.show : $style.hide, side === 'left' ? $style.left : $style.right]">
       <div
         :class="$style.cancel"
         @click="$emit('close')"
@@ -80,11 +80,17 @@ const handleClick = (name: string ) => {
   min-height: 100vh;
   color: @white;
   transition: right 0.5s ease;
-  &.show {
+  &.right.show {
     right: 0;
   }
-  &.hide {
+  &.right.hide {
     right: -20rem;
+  }
+  &.left.show {
+    left: 0;
+  }
+  &.left.hide {
+    left: -20rem;
   }
   .cancel {
     display: flex;
