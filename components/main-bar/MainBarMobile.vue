@@ -4,7 +4,10 @@
 <template>
   <div class="cont">
     <div class="left">
-      <font-aw :class="['iconBtn', 'md']" icon="fa-solid fa-bars" />
+      <font-aw
+        :class="['iconBtn', 'md']"
+        icon="fa-solid fa-bars"
+      />
     </div>
     <div class="center">
       <h1 class="title">
@@ -12,7 +15,10 @@
       </h1>
     </div>
     <div class="right">
-      <font-aw :class="['iconBtn', 'md']" icon="fa-solid fa-magnifying-glass" />
+      <font-aw
+        :class="['iconBtn', 'md']"
+        icon="fa-solid fa-magnifying-glass"
+      />
     </div>
   </div>
 </template>

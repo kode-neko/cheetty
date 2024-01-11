@@ -10,6 +10,7 @@ defineProps<{
 const emit = defineEmits<{
   (e: OptsType): void,
   (e: 'social', social: string): void,
+  (e: 'close'): void
 }>();
 
 const { menuLinks } = useGlobals();
@@ -21,6 +22,15 @@ const handleClick = (name: string ) => {
 
 <template>
   <div :class="$style.menu">
+    <div
+      :class="$style.cancel"
+      @click="$emit('close')"
+    >
+      <font-aw
+        :class="$style.icon"
+        icon="fa-solid fa-xmark"
+      />
+    </div>
     <div
       v-for="opt in menuLinks"
       :key="opt.name"
@@ -58,14 +68,29 @@ const handleClick = (name: string ) => {
   box-shadow: @side-menu-shadow;
   width: fit-content;
   min-height: 100vh;
+  color: @white;
+  .cancel {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: @lilac-01;
+    padding: 0.63rem;
+    margin-bottom: 1.75rem;
+    transition: background-color 0.3s;
+    &:hover {
+      cursor: pointer;
+      background-color: @pink-back;
+    }
+    .icon {
+      height: 1.75rem;
+    }
+  }
   .common {
     display: flex;
     align-items: center;
     padding: 0.63rem 1.25rem;
-    color: @white;
     transition: background-color 0.3s;
-    border: 0.13rem solid @purple-01;
-    border-top: none;
+    border-bottom: 0.13rem solid @purple-01;
     font-size: 1.13rem;
     .icon {
       height: 1.75rem;

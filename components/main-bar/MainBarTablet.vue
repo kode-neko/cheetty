@@ -37,13 +37,6 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
       </div>
       <div class="right">
         <font-aw
-          v-if="isMenuSide"
-          :class="['iconBtn', 'md']"
-          icon="fa-solid fa-circle-xmark"
-          @click="handleSideMenu"
-        />
-        <font-aw
-          v-else
           :class="['iconBtn', 'md']"
           icon="fa-solid fa-bars"
           @click="handleSideMenu"
@@ -53,6 +46,7 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
     <div :class="['side', isMenuSide ? 'show' : 'hide']">
       <MenuSide
         :is-visible="true"
+        @close="handleSideMenu"
         @contact="handleSideMenu"
         @create="handleSideMenu"
         @social="handleSideMenu"
@@ -63,6 +57,7 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
       <div
         v-if="isMenuSide"
         class="overlay"
+        @click="handleSideMenu"
       />
     </Transition>
   </div>
@@ -85,25 +80,28 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
 .outer {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
   .cont {
     position: relative;
-    z-index: 2;
+    z-index: 0;
   }
   .side {
     position: absolute;
-    top: 6.2rem;
-    z-index: 1;
+    top: 0;
+    z-index: 2;
     transition: right 0.5s;
     min-height: 100vh;
     &.show {
       right: 0rem;
     }
     &.hide {
-      right: -15.6rem;
+      right: -16rem;
     }
   }
   .overlay {
-    z-index: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
     width: 100%;
     min-height: 100vh;
     background-color: @purple-trans-01;
