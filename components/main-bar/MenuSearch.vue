@@ -1,36 +1,22 @@
 <script setup lang="ts">
-import useGlobals from '../../stores/globals';
 import Overlay from '../Overlay.vue';
 import Tag from '../Tag.vue';
-import type { OptsType } from './types';
 
 defineProps<{
+  search: string;
   isVisible: boolean;
+  results: string[][];
 }>();
 
 const emit = defineEmits<{
-  (e: OptsType): void,
-  (e: 'social', social: string): void,
-  (e: 'close'): void
+  (e: 'close'): void,
+  (e: 'search', results: string): void,
+  (e: 'result', social: string[]): void
 }>();
 
-const { menuLinks } = useGlobals();
-
-const handleClick = (name: string ) => {
-  emit(name as OptsType);
+const handleSearch = (event: Event) => {
+  emit('search', (event.target as HTMLInputElement).value);
 };
-
-const results = [
-  [ 'docker' ],
-  [
-    'docker', 'img'
-  ],
-  [
-    'docker',
-    'img',
-    'command'
-  ],
-];
 </script>
 
 <template>
@@ -39,7 +25,9 @@ const results = [
       <div :class="$style.field">
         <input
           :class="$style.input"
+          :value="search"
           placeholder="buscar..."
+          @input="handleSearch"
         >
         <font-aw
           :class="$style.icon"
@@ -57,6 +45,7 @@ const results = [
             :label="ele"
             size="sm"
             color="purple"
+            @click="$emit('result', res)"
           /> 
         </li>
       </ul>
@@ -73,6 +62,7 @@ const results = [
 @import '../assets/styles/colors.less';
 
 .search {
+  top: 0;
   position: absolute;
   z-index: 11;
   width: 100%;
