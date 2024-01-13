@@ -4,22 +4,22 @@ import FieldSearch from '../form-compos/FieldSearch.vue';
 import MenuContext from '../MenuContext.vue';
 import Btn from '../form-compos/Btn.vue';
 import useGlobals from '../../stores/globals';
+import type { Link } from '~/models';
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'search', val: string): void,
-  (e: 'social', type: string): void,
-  (e: 'contact'): void
-  (e: 'logout'): void
+  (e: 'link', path: string): void
 }>();
 
-const { socialList } = useGlobals();
+const { socialList, linksKey } = useGlobals();
 const searchStr = ref<string>('');
 const toggleMenu = ref<boolean>(false);
 const isSelSocial = ref<boolean>(false);
 
-const handleSocialClickOpt = () => {
+const handleSocialClickOpt = (social: Link) => {
   isSelSocial.value = true;
   toggleMenu.value = false;
+  emit('link', social.path);
 };
 const handleSocialMenu = () => {
   if(isSelSocial.value) {
@@ -51,11 +51,12 @@ const handleSocialMenu = () => {
           label="New cheat"
           icon="fa-solid fa-circle-plus"
           :solid="true"
+          @click="$emit('link', linksKey.create.path)"
         />
         <font-aw
           :class="['iconBtn', 'sm']"
           icon="fa-solid fa-envelope"
-          @click="$emit('contact')"
+          @click="$emit('link', linksKey.contact.path)"
         />
         <font-aw
           :class="['iconBtn', 'sm', toggleMenu ? 'active' : '']"
@@ -65,7 +66,7 @@ const handleSocialMenu = () => {
         <font-aw
           :class="['iconBtn', 'sm']"
           icon="fa-solid fa-door-open"
-          @click="$emit('logout')"
+          @click="$emit('link', linksKey.logout.path)"
         />
       </div>
     </div>

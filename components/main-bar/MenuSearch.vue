@@ -1,18 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Overlay from '../Overlay.vue';
 import Tag from '../Tag.vue';
 
 defineProps<{
-  search: string;
   isVisible: boolean;
-  results: string[][];
+  suggestSearch: string[][];
 }>();
 
 const emit = defineEmits<{
   (e: 'close'): void,
-  (e: 'search', results: string): void,
-  (e: 'result', social: string[]): void
+  (e: 'search', str: string): void,
+  (e: 'resultSelect', suggest: string[]): void
 }>();
+
+const search = ref<string>('');
 
 const handleSearch = (event: Event) => {
   emit('search', (event.target as HTMLInputElement).value);
@@ -24,28 +26,29 @@ const handleSearch = (event: Event) => {
     <div :class="[$style.search, isVisible ? $style.show : $style.hide]">
       <div :class="$style.field">
         <input
-          :class="$style.input"
           :value="search"
+          :class="$style.input"
           placeholder="buscar..."
           @input="handleSearch"
         >
         <font-aw
           :class="$style.icon"
           icon="fa-solid fa-xmark-circle"
+          @click="$emit('close')"
         />
       </div>
       <ul :class="$style.result">
         <li
-          v-for="(res, index) in results"
+          v-for="(list, index) in suggestSearch"
           :key="index"
         >
           <Tag
-            v-for="ele in res"
+            v-for="ele in list"
             :key="ele"
             :label="ele"
             size="sm"
             color="purple"
-            @click="$emit('result', res)"
+            @click="$emit('resultSelect', list)"
           /> 
         </li>
       </ul>
@@ -62,11 +65,17 @@ const handleSearch = (event: Event) => {
 @import '../assets/styles/colors.less';
 
 .search {
-  top: 0;
   position: absolute;
   z-index: 11;
   width: 100%;
   color: @white;
+  transition: top 0.3s;
+  &.show {
+    top:0;
+  }
+  &.hide {
+    top: -6.25rem;
+  }
 }
 .field {
   position: relative;
@@ -90,6 +99,10 @@ const handleSearch = (event: Event) => {
   }
   .icon {
     height: 2rem;
+    &:hover {
+      cursor: pointer;
+      color: @purple-01;
+    }
   }
 }
 

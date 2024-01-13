@@ -3,15 +3,21 @@ import { ref } from 'vue';
 import FieldSearch from '../form-compos/FieldSearch.vue';
 import BtnIcon from '../form-compos/BtnIcon.vue';
 import MenuSide from './MenuSide.vue';
+import type { Link } from '~/models';
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'search', val: string): void,
+  (e: 'link', path: string): void
 }>();
 
 const isMenuSide = ref<boolean>(false);
 const searchStr = ref<string>('');
 
 const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
+const handleLink = (link: Link) => { 
+  emit('link', link.path);
+  handleSideMenu();
+};
 </script>
 
 <template>
@@ -41,13 +47,11 @@ const handleSideMenu = () => (isMenuSide.value = !isMenuSide.value);
         />
       </div>
     </div>
+
     <MenuSide
       :is-visible="isMenuSide"
       @close="handleSideMenu"
-      @contact="handleSideMenu"
-      @create="handleSideMenu"
-      @social="handleSideMenu"
-      @logout="handleSideMenu"
+      @link="handleLink"
     />
   </div>
 </template>

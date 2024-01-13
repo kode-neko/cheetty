@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import useGlobals from '../../stores/globals';
 import Overlay from '../Overlay.vue';
-import type { OptsType } from './types';
+import type { Link } from '~/models';
 
 defineProps<{
   isVisible: boolean;
   side?: 'left' | 'right';
 }>();
 
-const emit = defineEmits<{
-  (e: OptsType): void,
+defineEmits<{
+  (e: 'link', link: Link): void,
   (e: 'social', social: string): void,
   (e: 'close'): void
 }>();
 
 const { menuLinks } = useGlobals();
-
-const handleClick = (name: string ) => {
-  emit(name as OptsType);
-};
 </script>
 
 <template>
@@ -37,7 +33,7 @@ const handleClick = (name: string ) => {
         v-for="opt in menuLinks"
         :key="opt.name"
         :class="[opt.name === 'social' ? $style.eleSocial : $style.ele]"
-        @click="handleClick(opt.name)"
+        @click="$emit('link', opt)"
       >
         <template v-if="opt.name === 'social'">
           <font-aw

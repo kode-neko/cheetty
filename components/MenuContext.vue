@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import { type Link } from "../models";
 
@@ -6,14 +5,22 @@ defineProps<{
   opts: Link[]
 }>();
 defineEmits<{
-  (e: 'clickopt', val: string): void
+  (e: 'clickopt', link: Link): void
 }>();
 </script>
 
 <template>
   <div :class="$style.menu">
-    <div v-for="opt in opts" :key="opt.name" :class="$style.ele" @click="$emit('clickopt', opt.name)">
-      <font-aw :class="$style.icon" :icon="opt.icon" />
+    <div
+      v-for="opt in opts"
+      :key="opt.name"
+      :class="$style.ele"
+      @click="$emit('clickopt', opt)"
+    >
+      <font-aw
+        :class="$style.icon"
+        :icon="opt.icon"
+      />
       <div class="label">
         {{ opt.name }}
       </div>

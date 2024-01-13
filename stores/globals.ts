@@ -69,6 +69,11 @@ export default defineStore('global', () => {
     icon: 'fa-solid fa-door-open',
     alt: ''
   };
+  const linksKey = {
+    create,
+    contact,
+    logout
+  };
   const menuLinks: Link[] = [
     create,
     social,
@@ -81,6 +86,7 @@ export default defineStore('global', () => {
     mainFooter,
 
     socialList,
+    linksKey,
     menuLinks
   };
 });
