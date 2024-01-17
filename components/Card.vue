@@ -1,6 +1,12 @@
 <template>
   <div :class="$style.cont">
     <header :class="$style.header">
+      <img
+        v-if="cheat.pic"
+        :src="cheat.pic.path"
+        :class="$style.pic"
+        :alt="cheat.pic.alt"
+      />
       <h2 :class="$style.title">
         {{ cheat.title }}
       </h2>
@@ -57,6 +63,7 @@ defineProps<{
 <style lang="less" module>
 @import "../assets/styles/colors.less";
 @import "../assets/styles/shadow.less";
+@import "../assets/styles/animations.less";
 
 .cont {
   border-radius: 1.25rem;
@@ -73,6 +80,12 @@ defineProps<{
     text-shadow: @neon-effect;
     font-size: 1.5rem;
     font-weight: bold;
+  }
+  .pic {
+    border-radius: 1.25rem 1.25rem 0 0;
+    max-height: 12.5rem;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -103,5 +116,12 @@ defineProps<{
   .actions {
 
   }
+}
+
+.cont:hover>.header>.title {
+  animation-name: neonEffect;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
 }
 </style>
