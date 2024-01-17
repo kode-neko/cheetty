@@ -1,6 +1,5 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   label: string,
   del?: boolean,
   size: 'md' | 'sm',
@@ -8,7 +7,6 @@ const props = withDefaults(defineProps<{
 }>(), {
   del: false,
 });
-console.log(props.del);
 
 defineEmits<{
   (e: 'del'): void

@@ -1,8 +1,7 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 defineProps<{
   icon?: string[] | string,
-  color: 'purple' | 'pink'
+  color: 'lilac' | 'purple' | 'pink'
 }>();
 defineEmits<{
   (e: 'click'): void
@@ -10,8 +9,15 @@ defineEmits<{
 </script>
 
 <template>
-  <button :class="['btn', color]" @click="$emit('click')">
-    <font-aw v-if="icon" class="icon" :icon="icon" />
+  <button
+    :class="['btn', color]"
+    @click="$emit('click')"
+  >
+    <font-aw
+      v-if="icon"
+      class="icon"
+      :icon="icon"
+    />
   </button>
 </template>
 
@@ -28,6 +34,9 @@ defineEmits<{
   display: flex;
   align-items: center;
   justify-content: center;
+  &.lilac {
+    background-color: @lilac-01;
+  }
   &.purple {
     background-color: @purple-02;
   }
@@ -36,6 +45,9 @@ defineEmits<{
   }
   &:hover {
     cursor: pointer;
+  }
+  &.lilac:hover {
+    background-color: @pink-01;
   }
   &.purple:hover {
     background-color: @lilac-01;
