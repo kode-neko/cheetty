@@ -1,5 +1,3 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
-
 <script setup lang="ts">
 defineProps<{
   placeholder: string;
@@ -16,7 +14,13 @@ const handleInput = (event: Event) => {
 </script>
 
 <template>
-  <input class="field" type="text" :value="modelValue" :placeholder="placeholder" @input="handleInput" />
+  <input
+    class="field"
+    type="text"
+    :value="modelValue"
+    :placeholder="placeholder"
+    @input="handleInput"
+  />
 </template>
 
 <style scoped lang="less">
