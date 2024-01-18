@@ -42,6 +42,7 @@ const handleTyping = (event: KeyboardEvent) => {
   height: 100%;
   color: @white;
   font-size: 1.13rem;
+  padding: 0.63rem 0;
   border-bottom: 0.2rem solid @pink-01;
   box-shadow: 0 1.13rem 1.13rem -1rem @pink-back, 0 0.38rem 0.38rem -0.38rem @pink-back;
   &::placeholder {

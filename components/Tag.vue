@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 });
 
 defineEmits<{
-  (e: 'del'): void
+  (e: 'delete'): void
 }>();
 </script>
 
@@ -58,7 +58,7 @@ defineEmits<{
 
 .md {
   height: 2.5rem;
-  padding: 0.38rem 1.25rem;
+  padding: 0.1rem 1.25rem;
   font-size: 1.5rem;
   font-weight: bold;
 }

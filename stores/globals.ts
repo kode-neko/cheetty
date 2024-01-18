@@ -81,7 +81,8 @@ export default defineStore('global', () => {
     logout
   ];
 
-  const tagPattern = /^((\w+,?)|(\w+,{1}\s?)*|(\w+,{1}\s{1}\w*)*)$/;
+  // const tagPattern = /^((\w+,?)|(\w+,{1}\s?)*|(\w+,{1}\s{1}\w*)*)$/;
+  const tagPattern = /^(\w+\s*)*$/;
 
   return {
     mainTitle,
