@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/prefer-function-type -->
 <script setup lang="ts">
 import Field from './Field.vue';
 
@@ -18,8 +17,15 @@ const handleInput = (event: Event) => {
 
 <template>
   <div class="cont">
-    <Field :model-value="modelValue" :placeholder="placeholder" @input="handleInput" />
-    <font-aw class="icon" icon="fa-solid fa-circle-xmark" />
+    <Field
+      :model-value="modelValue"
+      :placeholder="placeholder"
+      @input="handleInput"
+    />
+    <font-aw
+      class="icon"
+      icon="fa-solid fa-circle-xmark"
+    />
   </div>
 </template>
 
