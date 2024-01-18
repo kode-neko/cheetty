@@ -107,6 +107,7 @@
                 "alphabetical": false
             }
         ],
-        "@typescript-eslint/prefer-function-type": "off"
+        "@typescript-eslint/prefer-function-type": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off"
     }
 }
