@@ -1,7 +1,8 @@
 <script setup lang="ts">
-defineProps<{
+const { modelValue, pattern } = defineProps<{
   placeholder: string;
   modelValue: string;
+  pattern?: RegExp;
 }>();
 
 const emit = defineEmits<{
@@ -10,6 +11,15 @@ const emit = defineEmits<{
 
 const handleInput = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value);
+};
+
+const handleTyping = (event: KeyboardEvent) => {
+  if(pattern && pattern.test(modelValue + event.key)) {
+    const value = (event.target as HTMLInputElement).value;
+    emit('update:modelValue', value + event.key);
+  } else {
+    emit('update:modelValue', modelValue);
+  }
 };
 </script>
 
@@ -20,6 +30,7 @@ const handleInput = (event: Event) => {
     :value="modelValue"
     :placeholder="placeholder"
     @input="handleInput"
+    @keydown="handleTyping"
   />
 </template>
 
