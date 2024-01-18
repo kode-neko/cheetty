@@ -3,7 +3,8 @@
 defineProps<{
   label: string,
   icon?: string[] | string,
-  solid?: boolean
+  solid?: boolean,
+  type?: 'button' | 'submit' | 'reset'
 }>();
 defineEmits<{
   (e: 'click'): void
@@ -11,8 +12,16 @@ defineEmits<{
 </script>
 
 <template>
-  <button :class="solid ? 'solid' : 'line'" @click="$emit('click')">
-    <font-aw v-if="icon" class="icon" :icon="icon" />
+  <button
+    :class="solid ? 'solid' : 'line'"
+    :type="type ?? 'button'"
+    @click="$emit('click')"
+  >
+    <font-aw
+      v-if="icon"
+      class="icon"
+      :icon="icon"
+    />
     <div class="label">
       {{ label }}
     </div>
@@ -51,13 +60,16 @@ defineEmits<{
 .line {
   .btn();
   border: 0.13rem solid @pink-back;
-  transition: border 0.3s, color 0.3s;
+  transition: border 0.3s;
   .icon, .label{
     color: @pink-back;
+    transition: color 0.3s;
   }
   &:hover {
     border: 0.13rem solid @lilac-01;
-    color: @lilac-01;
+    .icon, .label{
+      color: @lilac-01;
+    }
   }
 }
 

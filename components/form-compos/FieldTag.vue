@@ -34,7 +34,7 @@ const emit = defineEmits<{
 }>();
 
 const { tagPattern } = useGlobals();
-const tagsStr = tags.join(', ');
+const tagsStr = tags.join(' ');
 const transformTagStr = (str: string) => {
   const newTags = str.split(/\s/);
   emit('change', newTags);

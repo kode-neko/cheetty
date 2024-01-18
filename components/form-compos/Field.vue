@@ -39,7 +39,6 @@ const handleTyping = (event: KeyboardEvent) => {
 
 .field {
   width: 100%;
-  height: 100%;
   color: @white;
   font-size: 1.13rem;
   padding: 0.63rem 0;
