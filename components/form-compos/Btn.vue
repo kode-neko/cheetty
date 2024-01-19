@@ -4,7 +4,8 @@ defineProps<{
   label: string,
   icon?: string[] | string,
   solid?: boolean,
-  type?: 'button' | 'submit' | 'reset'
+  size?: 'md' | 'sm',
+  type?: 'button' | 'submit' | 'reset',
 }>();
 defineEmits<{
   (e: 'click'): void
@@ -13,7 +14,7 @@ defineEmits<{
 
 <template>
   <button
-    :class="solid ? 'solid' : 'line'"
+    :class="[solid ? 'solid' : 'line', size ? size : 'md']"
     :type="type ?? 'button'"
     @click="$emit('click')"
   >
@@ -33,8 +34,6 @@ defineEmits<{
 @import '../../assets/styles/units.less';
 
 .btn {
-  height: 3.13rem;
-  padding: 0 1.25rem;
   border-radius: @radius-sm;
   box-sizing: border-box;
   display: flex;
@@ -42,6 +41,20 @@ defineEmits<{
   justify-content: center;
   &:hover {
     cursor: pointer;
+  }
+  &.md {
+    height: 3.13rem;
+    padding: 0 1.25rem;
+    .label {
+      font-size: 1.13rem;
+    }
+  }
+  &.sm {
+    height: 2.38rem;
+    padding: 0 1rem;
+    .label {
+      font-size: 0.88rem;
+    }
   }
 }
 
@@ -79,7 +92,6 @@ defineEmits<{
 }
 
 .label {
-  font-size: 1.13rem;
   text-transform: uppercase;
   font-weight: bold;
 }
